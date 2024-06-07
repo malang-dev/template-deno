@@ -1,5 +1,13 @@
 import { swaggerUI } from "hono/swagger-ui";
-import { Hono, cors, dotenv, fs, prettyJSON, serveStatic } from "../deps.ts";
+import {
+  Hono,
+  cors,
+  dotenv,
+  fs,
+  path,
+  prettyJSON,
+  serveStatic,
+} from "../deps.ts";
 import { notFoundHandler } from "./middlewares/error.middleware.ts";
 import { errorHandler } from "./middlewares/error.middleware.ts";
 import { DefaultRoute } from "./routes/base.route.ts";
@@ -13,6 +21,7 @@ const cwd = Deno.cwd();
 const env = dotenv.loadSync({
   allowEmptyValues: true,
   export: true,
+  defaultsPath: path.resolve("./.env.example"),
 });
 
 // middleware
