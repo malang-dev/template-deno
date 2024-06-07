@@ -1,4 +1,4 @@
-name: Github Pages
+name: Deno Deploy
 
 on:
   workflow_run:
@@ -29,6 +29,9 @@ jobs:
   push:
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
     steps:
       - name: Download build from artifact
         uses: actions/download-artifact@v4
