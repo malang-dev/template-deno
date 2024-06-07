@@ -37,9 +37,17 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 ## Releasing
 
-1. Go to [Publish Release](https://github.com/malang-dev/template-deno/actions/workflows/publish-release.yaml) page, click Run workflow
-2. Fill the vendor version and then run the flow
-3. GitHub Actions will take care of the rest
+### For first time setup
+1. Make sure you have deno deploy account [https://deno.com/deploy](https://deno.com/deploy)
+2. Create new project, after that goto project setting and Link the project to github repostitory
+3. Don't forget to check `Just link the repo, I’ll set up GitHub Actions myself`, and then click create project button
+4. Ignore it, if asks for empty commit
+5. Change the project name in [deno-deploy.yaml](https://github.com/malang-dev/template-deno/blob/master/.github/workflows/deno-deploy.yaml#L44)
+
+### After first time setup / second time deploy
+6. Go to [Publish Release](https://github.com/malang-dev/template-deno/actions/workflows/publish-release.yaml) page, click Run workflow
+7. Fill the vendor version and then run the flow
+8. GitHub Actions will take care of the rest
 
 ## License
 
