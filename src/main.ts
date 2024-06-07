@@ -18,14 +18,7 @@ const env = dotenv.loadSync({
 // middleware
 app.use("*", cors());
 app.use("*", prettyJSON());
-app.use(
-  "/api/*",
-  demo({ enable: env.DENO_ENV == "demo" })
-  // apiKeyAuth({
-  //   key: env.WEB_API_KEY,
-  //   whitelist: env.WEB_API_WHITELISTED_IP.split(","),
-  // })
-);
+app.use("/api/*", demo({ enable: env.DENO_ENV == "demo" }));
 app.use(
   "/static/*",
   serveStatic({
