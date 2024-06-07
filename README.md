@@ -1,43 +1,52 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <a href="https://github.com/bramanda48/docker-mailserver-webapi">
-    <img src="./screenshoot/image-1.png" alt="Screenshoot" width="500px">
+  <a href="https://github.com/malang-dev/template-deno">
+    <img src="https://svgshare.com/i/14V6.svg" alt="Typescript" width="150px">
   </a>
-  <h2 align="center">Docker Mailserver - Web API</h2>
+  <h2 align="center">@malang-dev/template-deno</h2>
   <div align="center">
-    <p align="center">a REST API that helps you efficiently manage your <a href="https://github.com/docker-mailserver/docker-mailserver" title="Docker Mailserver">docker-mailserver</a> configuration.</p>
+    <p align="center">Template repository for new TypeScript projects</p>
     <div>
-        <a href="https://github.com/bramanda48/docker-mailserver-webapi/releases/"><img src="https://img.shields.io/github/release/bramanda48/docker-mailserver-webapi?include_prereleases=&sort=semver&color=blue" alt="GitHub release"></a>
-        <a href="https://github.com/bramanda48/docker-mailserver-webapi#license"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
+        <a href="https://github.com/malang-dev/template-deno/releases/"><img src="https://img.shields.io/github/release/malang-dev/template-deno?include_prereleases=&sort=semver&color=blue" alt="GitHub release"></a>
+        <a href="https://github.com/malang-dev/template-deno#license"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
     </div>
   </div>
 </div>
 
----
-
-| Branch  | Status            |
-|---------|-------------------|
-| master  | <img src="https://img.shields.io/static/v1?label=&message=Under+Development&color=8B8000&logo=deno" alt="Under Development"> |
-| develop | <img src="https://img.shields.io/static/v1?label=&message=Under+Development&color=8B8000&logo=deno" alt="Under Development"> |
-
 ## Installation & Usage
 
-1. Create new file `user-patches.sh` in config folder.
-2. Add this script inside `user-patches.sh`.
-   ```bash
-    #!/bin/bash
-
-    curl -fsSL https://raw.githubusercontent.com/bramanda48/docker-mailserver-webapi/master/scripts/user-patches.sh | bash
+1. Create a new repository by clicking the `Use this template` button.
+2. Fill in the repository name and description, then click the `Create Repository button`.
+3. Clone the created repository.
+4. Install dependencies by running:
    ```
-3. By default, this application will run on port 3000. You need add the port to `docker-compose.yml`.
-4. Redeploy the container.
+   yarn install
+   ```
+5. Done, Happy coding!!!.
+
+## Contributing
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Releasing
+
+1. Go to [Publish Release](https://github.com/malang-dev/template-deno/actions/workflows/publish-release.yaml) page, click Run workflow
+2. Fill the vendor version and then run the flow
+3. GitHub Actions will take care of the rest
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/bramanda48/docker-mailserver-webapi/blob/master/LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/malang-dev/template-deno/blob/master/LICENSE.md) file for details.
 
 ## Acknowledgments
 
 Inspiration, code snippets, icon, etc.
-* [Docker Mailserver](https://github.com/docker-mailserver/docker-mailserver) by The Docker Mailserver Organization & Contributors.
+
+- [Template Typescript](https://github.com/foxglove/template-typescript) by Foxglove.
