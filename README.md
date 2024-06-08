@@ -6,7 +6,7 @@
   </a>
   <h2 align="center">@malang-dev/template-deno</h2>
   <div align="center">
-    <p align="center">Template repository for new TypeScript projects</p>
+    <p align="center">Template repository for new Deno projects</p>
     <div>
         <a href="https://github.com/malang-dev/template-deno/releases/"><img src="https://img.shields.io/github/release/malang-dev/template-deno?include_prereleases=&sort=semver&color=blue" alt="GitHub release"></a>
         <a href="https://github.com/malang-dev/template-deno#license"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
