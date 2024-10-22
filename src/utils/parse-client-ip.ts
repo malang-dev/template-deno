@@ -1,9 +1,9 @@
-import { utils } from "./utils.ts";
+import { utils } from "@src/utils/utils.ts";
 
 // This function from https://github.com/pbojinov/request-ip/blob/master/src/index.js
 export const parseClientIp = (
   request: Request,
-  handler: Deno.ServeHandlerInfo
+  handler: Deno.ServeHandlerInfo,
 ): string => {
   // Standard headers used by Amazon EC2, Heroku, and others.
   if (request.headers.has("x-client-ip")) {
@@ -78,5 +78,5 @@ export const parseClientIp = (
   }
 
   // Remote address checks.
-  return handler.remoteAddr.hostname;
+  return handler.remoteAddr.transport;
 };

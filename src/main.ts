@@ -1,27 +1,22 @@
-import { swaggerUI } from "hono/swagger-ui";
-import {
-  Hono,
-  cors,
-  dotenv,
-  fs,
-  path,
-  prettyJSON,
-  serveStatic,
-} from "../deps.ts";
-import { notFoundHandler } from "./middlewares/error.middleware.ts";
-import { errorHandler } from "./middlewares/error.middleware.ts";
-import { DefaultRoute } from "./routes/base.route.ts";
-import { demo } from "./middlewares/demo.middleware.ts";
-import { parseClientIp } from "./utils/parse-client-ip.ts";
+import { notFoundHandler } from "@src/middlewares/error.middleware.ts";
+import { errorHandler } from "@src/middlewares/error.middleware.ts";
+import { DefaultRoute } from "@src/routes/base.route.ts";
+import { demo } from "@src/middlewares/demo.middleware.ts";
+import { parseClientIp } from "@src/utils/parse-client-ip.ts";
+import { Hono } from "@hono/hono";
+import { cors } from "@hono/hono/cors";
+import { prettyJSON } from "@hono/hono/pretty-json";
+import { serveStatic } from "@hono/hono/serve-static";
+import { existsSync } from "@std/fs";
+import { loadSync } from "@std/dotenv";
+import { swaggerUI } from "@hono/swagger-ui";
 
 const app = new Hono<Environment>();
 const cwd = Deno.cwd();
 
 // environment variables
-const env = dotenv.loadSync({
-  allowEmptyValues: true,
+const env = loadSync({
   export: true,
-  defaultsPath: path.resolve("./.env.example"),
 });
 
 // middleware
@@ -33,16 +28,16 @@ app.use(
   serveStatic({
     root: "./",
     getContent: async (path) => {
-      path = !fs.existsSync(path) ? "static/index.html" : path;
+      path = !existsSync(path) ? "static/index.html" : path;
       return await Deno.readFile(path);
     },
-  })
+  }),
 );
 app.get(
   "/",
   swaggerUI({
     url: "/static/openapi.yaml",
-  })
+  }),
 );
 
 // errors handler

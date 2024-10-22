@@ -1,4 +1,4 @@
-import { EnvService } from "./env.service.ts";
+import { EnvService } from "@src/services/env.service.ts";
 
 export class BaseService {
   protected env: EnvService;

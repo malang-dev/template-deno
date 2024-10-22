@@ -1,5 +1,5 @@
+import type { Context } from "@hono/hono";
 import { StatusCodes } from "status-code";
-import { Context } from "hono";
 
 type HeaderRecord = Record<string, string | string[]>;
 
@@ -52,7 +52,7 @@ export class ResponseFormat<T = any> {
     return this.context.json(
       this.response,
       this.response.statusCode as -1,
-      headers
+      headers,
     );
   }
 }

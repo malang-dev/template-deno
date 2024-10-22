@@ -1,4 +1,4 @@
-import { V1Route } from "./v1.route.ts";
+import { V1Route } from "@src/routes/v1.route.ts";
 
 const defaultRoutes = [
   {
