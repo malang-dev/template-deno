@@ -1,5 +1,5 @@
+import type { Context } from "@hono/hono";
 import { StatusCodes } from "status-code";
-import { Context } from "hono";
 
 type HeaderRecord = Record<string, string | string[]>;
 

@@ -1,4 +1,4 @@
-import { Hono } from "hono";
+import { Hono } from "@hono/hono";
 import { HelloController } from "../controllers/hello.controller.ts";
 
 const route = new Hono();

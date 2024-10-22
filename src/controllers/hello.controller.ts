@@ -1,4 +1,5 @@
-import { Context, Handler, StatusCodes } from "../../deps.ts";
+import { type Context, Handler } from "@hono/hono";
+import { StatusCodes } from "status-code";
 import { ResponseFormat } from "../utils/api-response.ts";
 
 const getHello: Handler = (c: Context<Environment>) => {

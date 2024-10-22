@@ -13,7 +13,7 @@ export const utils = {
       allow_numeric_tld?: boolean;
       allow_wildcard?: boolean;
       ignore_max_length?: boolean;
-    } = {}
+    } = {},
   ) => {
     /* Remove the optional trailing dot before checking validity */
     if (options.allow_trailing_dot && str[str.length - 1] === ".") {
@@ -37,7 +37,7 @@ export const utils = {
       if (
         !options.allow_numeric_tld &&
         !/^([a-z\u00A1-\u00A8\u00AA-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]{2,}|xn[a-z0-9-]{2,})$/i.test(
-          tld
+          tld,
         )
       ) {
         return false;
@@ -87,8 +87,10 @@ export const utils = {
 
   isValidIP(value: string): boolean {
     const regex = {
-      ipv4: /^(?:(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.){3}(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])$/,
-      ipv6: /^((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})$/i,
+      ipv4:
+        /^(?:(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.){3}(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])$/,
+      ipv6:
+        /^((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})$/i,
     };
     return regex.ipv4.test(value) || regex.ipv6.test(value);
   },

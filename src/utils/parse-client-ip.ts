@@ -78,5 +78,5 @@ export const parseClientIp = (
   }
 
   // Remote address checks.
-  return handler.remoteAddr.hostname;
+  return handler.remoteAddr.transport;
 };

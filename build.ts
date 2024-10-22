@@ -1,13 +1,13 @@
 import * as esbuild from "esbuild";
 import copyPlugin from "esbuild/copy";
 import { denoPlugins } from "esbuild/loader";
-import { path } from "./deps.ts";
+import { resolve } from "@std/path";
 
 await esbuild.build({
   entryPoints: ["./src/main.ts"],
   plugins: [
     ...denoPlugins({
-      configPath: path.resolve("./deno.jsonc"),
+      configPath: resolve("./deno.jsonc"),
     }),
     copyPlugin({
       baseDir: "./",
