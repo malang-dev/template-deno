@@ -3,7 +3,7 @@
   "tasks": {
     "start": "deno run -A dist/main.esm.js",
     "dev": "deno run -A --watch src/main.ts",
-    "deps": "deno cache --reload --lock=deno.lock --lock-write deps.ts build.ts",
+    "deps": "deno cache --reload --lock=deno.lock deps.ts build.ts",
     "build": "deno run -A build.ts",
     "test": "deno test"
   },
@@ -27,7 +27,6 @@
     }
   },
   "compilerOptions": {
-    "allowJs": false,
     "lib": ["deno.window"],
     "strict": true,
     "strictPropertyInitialization": false,
