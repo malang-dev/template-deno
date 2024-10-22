@@ -1,4 +1,4 @@
-import { utils } from "./utils.ts";
+import { utils } from "@src/utils/utils.ts";
 
 // This function from https://github.com/pbojinov/request-ip/blob/master/src/index.js
 export const parseClientIp = (

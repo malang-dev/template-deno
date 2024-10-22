@@ -1,13 +1,13 @@
 import { ZodError } from "zod";
-import { IExceptionMessage, ResponseFormat } from "../utils/api-response.ts";
-import { BaseException } from "../exceptions/base.exception.ts";
-import { BadRequestException } from "../exceptions/bad-request.exception.ts";
-import { InternalServerErrorException } from "../exceptions/internal-server.exception.ts";
-import { NotFoundException } from "../exceptions/not-found.exception.ts";
-import { utils } from "../utils/utils.ts";
 import { StatusCodes } from "status-code";
 import type { ErrorHandler, NotFoundHandler } from "@hono/hono";
 import { HTTPException } from "@hono/hono/http-exception";
+import { BaseException } from "@src/exceptions/base.exception.ts";
+import { IExceptionMessage, ResponseFormat } from "@src/utils/api-response.ts";
+import { utils } from "@src/utils/utils.ts";
+import { BadRequestException } from "@src/exceptions/bad-request.exception.ts";
+import { InternalServerErrorException } from "@src/exceptions/internal-server.exception.ts";
+import { NotFoundException } from "@src/exceptions/not-found.exception.ts";
 
 export const errorHandler: ErrorHandler = async (err: any, c) => {
   let exception: BaseException;

@@ -1,7 +1,7 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@hono/hono@^4.6.5": "4.6.6",
+    "jsr:@hono/hono@^4.6.6": "4.6.6",
     "jsr:@std/assert@^1.0.6": "1.0.6",
     "jsr:@std/bytes@^1.0.2": "1.0.2",
     "jsr:@std/dotenv@~0.225.2": "0.225.2",
@@ -287,7 +287,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.6.5",
+      "jsr:@hono/hono@^4.6.6",
       "jsr:@std/assert@^1.0.6",
       "jsr:@std/bytes@^1.0.2",
       "jsr:@std/dotenv@~0.225.2",

@@ -1,8 +1,8 @@
-import { notFoundHandler } from "./middlewares/error.middleware.ts";
-import { errorHandler } from "./middlewares/error.middleware.ts";
-import { DefaultRoute } from "./routes/base.route.ts";
-import { demo } from "./middlewares/demo.middleware.ts";
-import { parseClientIp } from "./utils/parse-client-ip.ts";
+import { notFoundHandler } from "@src/middlewares/error.middleware.ts";
+import { errorHandler } from "@src/middlewares/error.middleware.ts";
+import { DefaultRoute } from "@src/routes/base.route.ts";
+import { demo } from "@src/middlewares/demo.middleware.ts";
+import { parseClientIp } from "@src/utils/parse-client-ip.ts";
 import { Hono } from "@hono/hono";
 import { cors } from "@hono/hono/cors";
 import { prettyJSON } from "@hono/hono/pretty-json";
