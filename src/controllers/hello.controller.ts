@@ -18,7 +18,7 @@ const getHello: Handler = (c: Context<Environment>) => {
         hello: parameter,
         ip: ipAddress,
       },
-      StatusCodes.OK
+      StatusCodes.OK,
     );
 };
 

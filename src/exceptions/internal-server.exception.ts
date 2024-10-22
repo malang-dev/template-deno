@@ -6,7 +6,7 @@ export class InternalServerErrorException extends BaseException {
     super(
       "INTERNAL_SERVER_ERROR",
       message ?? "Internal Server Error",
-      StatusCodes.INTERNAL_SERVER_ERROR
+      StatusCodes.INTERNAL_SERVER_ERROR,
     );
   }
 }

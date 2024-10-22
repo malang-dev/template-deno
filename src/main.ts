@@ -31,13 +31,13 @@ app.use(
       path = !existsSync(path) ? "static/index.html" : path;
       return await Deno.readFile(path);
     },
-  })
+  }),
 );
 app.get(
   "/",
   swaggerUI({
     url: "/static/openapi.yaml",
-  })
+  }),
 );
 
 // errors handler

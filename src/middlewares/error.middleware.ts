@@ -33,8 +33,8 @@ export const errorHandler: ErrorHandler = async (err: any, c) => {
         new IExceptionMessage(
           "VALIDATION_ERROR",
           `Value of ${x.path} ~ ${x.message}`,
-          exception.stack
-        )
+          exception.stack,
+        ),
       )
     );
   } else {
@@ -47,7 +47,7 @@ export const errorHandler: ErrorHandler = async (err: any, c) => {
       exception = new InternalServerErrorException(err.message);
     }
     errors.push(
-      new IExceptionMessage(exception.codes, exception.message, exception.stack)
+      new IExceptionMessage(exception.codes, exception.message, exception.stack),
     );
   }
   return responseFormat
@@ -81,7 +81,7 @@ export const notFoundHandler: NotFoundHandler = async (c) => {
   queryParse = !utils.isEmpty(queryParse) ? queryParse : undefined;
 
   errors.push(
-    new IExceptionMessage(exception.codes, exception.message, exception.stack)
+    new IExceptionMessage(exception.codes, exception.message, exception.stack),
   );
   return responseFormat
     .withRequestData({

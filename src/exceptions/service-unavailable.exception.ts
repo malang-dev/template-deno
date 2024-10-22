@@ -6,7 +6,7 @@ export class ServiceUnavailableException extends BaseException {
     super(
       name ?? "SERVICE_UNAVAILABLE",
       message,
-      StatusCodes.SERVICE_UNAVAILABLE
+      StatusCodes.SERVICE_UNAVAILABLE,
     );
   }
 }
