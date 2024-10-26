@@ -46,7 +46,7 @@ export class ResponseFormat<T = any> {
     return this.context.json(
       this.response,
       this.response.statusCode as -1,
-      headers
+      headers,
     );
   }
 }
