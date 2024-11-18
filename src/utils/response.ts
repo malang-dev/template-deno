@@ -1,5 +1,5 @@
+import { StatusCodes } from "@/utils/status.ts";
 import type { Context } from "@hono/hono";
-import { StatusCodes } from "status-code";
 
 type HeaderRecord = Record<string, string | string[]>;
 
@@ -21,12 +21,6 @@ export class ResponseFormat<T = any> {
 
   withErrors(errors: IExceptionMessage[]) {
     this.response.errors = errors;
-    return this;
-  }
-
-  withRequestData(data: IRequestMetadata) {
-    if (!this.response.metadata) return this;
-    this.response.metadata.request = data;
     return this;
   }
 
@@ -58,22 +52,11 @@ export class ResponseFormat<T = any> {
 }
 
 export class IMetadataFormat {
-  request?: IRequestMetadata | null;
   pagination?: IPaginationMetadata | null;
 
-  constructor(request?: IRequestMetadata, pagination?: IPaginationMetadata) {
-    this.request = request ?? null;
+  constructor(pagination?: IPaginationMetadata) {
     this.pagination = pagination ?? null;
   }
-}
-
-export interface IRequestMetadata {
-  timestamp: Date;
-  method: string;
-  path: string;
-  params?: object | null | unknown;
-  query?: object | null | unknown;
-  body?: object | null | unknown;
 }
 
 export interface IPaginationMetadata {

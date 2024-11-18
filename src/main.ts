@@ -1,28 +1,23 @@
-import { notFoundHandler } from "@src/middlewares/error.middleware.ts";
-import { errorHandler } from "@src/middlewares/error.middleware.ts";
-import { DefaultRoute } from "@src/routes/base.route.ts";
-import { demo } from "@src/middlewares/demo.middleware.ts";
-import { parseClientIp } from "@src/utils/parse-client-ip.ts";
+import { demo } from "@/middlewares/demo.middleware.ts";
+import { errorHandler, notFoundHandler } from "@/middlewares/error.middleware.ts";
+import { DefaultRoute } from "@/routes/base.route.ts";
+import { logger } from "@bramanda48/hono-pino";
 import { Hono } from "@hono/hono";
 import { cors } from "@hono/hono/cors";
 import { prettyJSON } from "@hono/hono/pretty-json";
 import { serveStatic } from "@hono/hono/serve-static";
-import { existsSync } from "@std/fs";
-import { loadSync } from "@std/dotenv";
 import { swaggerUI } from "@hono/swagger-ui";
+import { existsSync } from "@std/fs";
 
 const app = new Hono<Environment>();
-const cwd = Deno.cwd();
-
-// environment variables
-const env = loadSync({
-  export: true,
-});
+const isDemo = Deno.env.get("DENO_ENV") == "demo";
+const isDevelopment = Deno.env.get("DENO_ENV") == "develpoment";
 
 // middleware
 app.use("*", cors());
 app.use("*", prettyJSON());
-app.use("/api/*", demo({ enable: env.DENO_ENV == "demo" }));
+app.use("*", logger({ pino: { level: isDevelopment ? "debug" : "info" } }));
+app.use("/api/*", demo({ enable: isDemo }));
 app.use(
   "/static/*",
   serveStatic({
@@ -48,9 +43,4 @@ DefaultRoute.forEach((route) => {
   app.route(`${route.path}`, route.route);
 });
 
-// run server
-Deno.serve({ port: 3000 }, (request, handler) => {
-  const remoteAddr = () => parseClientIp(request, handler);
-  return app.fetch(request, { ...env, remoteAddr });
-});
-console.log(`Running on directory ${cwd}`);
+export default app;
