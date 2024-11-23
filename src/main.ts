@@ -7,6 +7,7 @@ import { cors } from "@hono/hono/cors";
 import { prettyJSON } from "@hono/hono/pretty-json";
 import { serveStatic } from "@hono/hono/serve-static";
 import { swaggerUI } from "@hono/swagger-ui";
+import "@std/dotenv/load";
 import { existsSync } from "@std/fs";
 
 const app = new Hono<Environment>();

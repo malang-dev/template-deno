@@ -4,11 +4,12 @@
     "jsr:@bramanda48/hono-pino@^0.0.7": "0.0.7",
     "jsr:@hono/hono@4.6.6": "4.6.6",
     "jsr:@hono/hono@^4.6.6": "4.6.6",
-    "jsr:@std/fs@^1.0.4": "1.0.5",
-    "jsr:@std/path@^1.0.6": "1.0.7",
-    "jsr:@std/path@^1.0.7": "1.0.7",
+    "jsr:@std/dotenv@~0.225.2": "0.225.2",
+    "jsr:@std/fs@^1.0.4": "1.0.6",
+    "jsr:@std/path@^1.0.6": "1.0.8",
+    "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/uuid@^1.0.4": "1.0.4",
-    "npm:@hono/swagger-ui@~0.4.1": "0.4.1_hono@4.6.6",
+    "npm:@hono/swagger-ui@~0.4.1": "0.4.1_hono@4.6.11",
     "npm:pino@^9.5.0": "9.5.0",
     "npm:zod@^3.23.8": "3.23.8"
   },
@@ -24,21 +25,24 @@
     "@hono/hono@4.6.6": {
       "integrity": "4856346894db3abfc4bdb89607b4d7bd84725236076fc922573def2b2b64130b"
     },
-    "@std/fs@1.0.5": {
-      "integrity": "41806ad6823d0b5f275f9849a2640d87e4ef67c51ee1b8fb02426f55e02fd44e",
+    "@std/dotenv@0.225.2": {
+      "integrity": "e2025dce4de6c7bca21dece8baddd4262b09d5187217e231b033e088e0c4dd23"
+    },
+    "@std/fs@1.0.6": {
+      "integrity": "42b56e1e41b75583a21d5a37f6a6a27de9f510bcd36c0c85791d685ca0b85fa2",
       "dependencies": [
-        "jsr:@std/path@^1.0.7"
+        "jsr:@std/path@^1.0.8"
       ]
     },
-    "@std/path@1.0.7": {
-      "integrity": "76a689e07f0e15dcc6002ec39d0866797e7156629212b28f27179b8a5c3b33a1"
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
     },
     "@std/uuid@1.0.4": {
       "integrity": "f4233149cc8b4753cc3763fd83a7c4101699491f55c7be78dc7b30281946d7a0"
     }
   },
   "npm": {
-    "@hono/swagger-ui@0.4.1_hono@4.6.6": {
+    "@hono/swagger-ui@0.4.1_hono@4.6.11": {
       "integrity": "sha512-kPaJatHffeYQ3yVkHo878hCqwfapqx54FczJVJ+eRWt8J4biyVVMIdCAJb6MyA8bcnHUoTmUpPc7OJAV1VTg2g==",
       "dependencies": [
         "hono"
@@ -50,8 +54,8 @@
     "fast-redact@3.5.0": {
       "integrity": "sha512-dwsoQlS7h9hMeYUq1W++23NDcBLV4KqONnITDV9DjfS3q1SgDGVrBdvvTLUotWtPSD7asWDV9/CmsZPy8Hf70A=="
     },
-    "hono@4.6.6": {
-      "integrity": "sha512-euUj5qwvtkG+p38GFs0LYacwaoS2hYRAGn9ysAggiwT2QBcPnT1XYUCW3hatW4C1KzAXTYuQ08BlVDJtAGuhlg=="
+    "hono@4.6.11": {
+      "integrity": "sha512-f0LwJQFKdUUrCUAVowxSvNCjyzI7ZLt8XWYU/EApyeq5FfOvHFarBaE5rjU9HTNFk4RI0FkdB2edb3p/7xZjzQ=="
     },
     "on-exit-leak-free@2.1.2": {
       "integrity": "sha512-0eJJY6hXLGf1udHwfNftBqH+g73EU4B504nZeKpz1sYRKafAghwxEJunB2O7rDZkL4PGfsMVnTXZ2EjibbqcsA=="
