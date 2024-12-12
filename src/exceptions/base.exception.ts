@@ -1,4 +1,4 @@
-import { HTTPException } from "@hono/hono/http-exception";
+import { HTTPException } from "hono/http-exception";
 
 export class BaseException extends HTTPException {
   public codes: string;

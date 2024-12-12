@@ -1,5 +1,5 @@
-import { MiddlewareHandler } from "@hono/hono";
 import { ServiceUnavailableException } from "@/exceptions/service-unavailable.exception.ts";
+import { MiddlewareHandler } from "hono";
 
 export const demo = (options: { enable: boolean }): MiddlewareHandler => {
   if (!options) {

@@ -1,5 +1,5 @@
 import { StatusCodes } from "@/utils/status.ts";
-import type { Context } from "@hono/hono";
+import type { Context } from "hono";
 
 type HeaderRecord = Record<string, string | string[]>;
 

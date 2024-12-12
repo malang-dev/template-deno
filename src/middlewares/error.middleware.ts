@@ -4,8 +4,8 @@ import { InternalServerErrorException } from "@/exceptions/internal-server.excep
 import { NotFoundException } from "@/exceptions/not-found.exception.ts";
 import { IExceptionMessage, ResponseFormat } from "@/utils/response.ts";
 import { StatusCodes } from "@/utils/status.ts";
-import { type Context, ErrorHandler, NotFoundHandler } from "@hono/hono";
-import { HTTPException } from "@hono/hono/http-exception";
+import { type Context, ErrorHandler, NotFoundHandler } from "hono";
+import { HTTPException } from "hono/http-exception";
 import { ZodError } from "zod";
 
 export const errorHandler: ErrorHandler = (
