@@ -1,7 +1,7 @@
 import { demo } from "@/middlewares/demo.middleware.ts";
 import { errorHandler, notFoundHandler } from "@/middlewares/error.middleware.ts";
+import { logger } from "@/middlewares/logger.middleware.ts";
 import { DefaultRoute } from "@/routes/base.route.ts";
-// import { logger } from "@bramanda48/hono-pino";
 import { swaggerUI } from "@hono/swagger-ui";
 import "@std/dotenv/load";
 import { existsSync } from "@std/fs";
@@ -12,12 +12,11 @@ import { serveStatic } from "hono/serve-static";
 
 const app = new Hono<Environment>();
 const isDemo = Deno.env.get("DENO_ENV") == "demo";
-// const isDevelopment = Deno.env.get("DENO_ENV") == "develpoment";
 
 // middleware
 app.use("*", cors());
 app.use("*", prettyJSON());
-// app.use("*", logger({ pino: { level: isDevelopment ? "debug" : "info" } }));
+app.use("*", logger());
 app.use("/api/*", demo({ enable: isDemo }));
 app.use(
   "/static/*",
