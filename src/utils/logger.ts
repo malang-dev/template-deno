@@ -1,4 +1,12 @@
-import { BaseHandler, type BaseHandlerOptions, type LevelName } from "@std/log";
+import {
+  BaseHandler,
+  type BaseHandlerOptions,
+  ConsoleHandler,
+  type LevelName,
+  setup as LoggerSetup,
+} from "@std/log";
+import { getContext } from "hono/context-storage";
+import { getConnInfo } from "hono/deno";
 import Rollbar from "rollbar";
 
 type RollbarHandlerOptions = BaseHandlerOptions & Rollbar.Configuration;
@@ -30,3 +38,41 @@ export class RollbarHandler extends BaseHandler {
     this.rollbar[this.logLevel.get(this.levelName)](msg);
   }
 }
+
+LoggerSetup({
+  handlers: {
+    rollbar: new RollbarHandler("WARN", {
+      enabled: Deno.env.get("ENABLE_ROLLBAR") === "true",
+      environment: Deno.env.get("DENO_ENV"),
+      accessToken: Deno.env.get("ROLLBAR_ACCESS_TOKEN"),
+      formatter: (record) => record.msg,
+    }),
+    console: new ConsoleHandler("NOTSET", {
+      useColors: true,
+      formatter: (record) => {
+        const ctx = getContext();
+        const ips = getConnInfo(ctx).remote.address;
+        const req = ctx.get("requestId");
+
+        const date = record.datetime.toISOString();
+        const name = record.loggerName;
+
+        const msgs = `${date} [${req}] [${name}] [${ips}] [${record.levelName}] -- ${record.msg}`;
+        const args = record.args.map((arg, index) => `arg${index}: ` + JSON.stringify(arg))
+          .join(" ");
+
+        return msgs + (name !== "http" ? " " + args : "");
+      },
+    }),
+  },
+  loggers: {
+    default: {
+      level: "DEBUG",
+      handlers: ["console", "rollbar"],
+    },
+    http: {
+      level: "INFO",
+      handlers: ["console"],
+    },
+  },
+});
