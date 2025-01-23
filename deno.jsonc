@@ -20,7 +20,6 @@
     "esbuild/loader": "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts",
     "hono": "npm:hono@^4.6.6",
     "rollbar": "npm:rollbar@^2.26.4",
-    "status-code": "https://deno.land/x/https_status_codes@v1.2.0/mod.ts",
     "zod": "npm:zod@^3.23.8"
   },
   "nodeModulesDir": "auto",
